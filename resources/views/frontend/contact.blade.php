@@ -1,3 +1,7 @@
+@extends('frontend.layouts.master')
+
+@section('content')
+
 <div class="page-top" id="templatemo_contact">
 </div> <!-- /.page-header -->
 
@@ -39,3 +43,6 @@
         </div>
     </div>
 </div>
+
+
+@endsection
