@@ -1,84 +1,66 @@
-<div class="partner-list">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <div class="partner-item">
-                    <img src="{{asset('public/frontend/images/partners/partner1.png')}}" alt="">
-                </div> <!-- /.partner-item -->
-            </div> <!-- /.col-md-2 -->
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <div class="partner-item">
-                    <img src="{{asset('public/frontend/images/partners/partner2.png')}}" alt="">
-                </div> <!-- /.partner-item -->
-            </div> <!-- /.col-md-2 -->
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <div class="partner-item">
-                    <img src="{{asset('public/frontend/images/partners/partner3.png')}}" alt="">
-                </div> <!-- /.partner-item -->
-            </div> <!-- /.col-md-2 -->
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <div class="partner-item">
-                    <img src="{{asset('public/frontend/images/partners/partner1.png')}}" alt="">
-                </div> <!-- /.partner-item -->
-            </div> <!-- /.col-md-2 -->
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <div class="partner-item">
-                    <img src="{{asset('public/frontend/images/partners/partner2.png')}}" alt="">
-                </div> <!-- /.partner-item -->
-            </div> <!-- /.col-md-2 -->
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <div class="partner-item last">
-                    <img src="{{asset('public/frontend/images/partners/partner3.png')}}" alt="">
-                </div> <!-- /.partner-item -->
-            </div> <!-- /.col-md-2 -->
-        </div> <!-- /.row -->
-    </div> <!-- /.container -->
-</div> <!-- /.partner-list -->
+<!-- Footer Part -->
+<section class="footer_part">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h4 style="color: white">Contact Us</h4>
+        <p style="color: white">Address: Cittagong, Mobile: 0183284666, Email: amir@gmail.com</p>
+      </div>
+      <div class="col-md-4">
+        <h4 style="color: white">Follow Us</h4>
+        <div class="social">
+          <ul>
+            <li><a href="" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter-square"></i></a></li>
+            <li><a href="" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+            <li><a href=""><i class="fa fa-google-plus-square"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p style="color: white;padding: 50px 0px 10px 0px;">
+         Developed by Amir &copy; Copyright   <script type="text/javascript">document.write(new Date().getFullYear())</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="gotoup">
+        <img src="{{asset('public/frontend/image/scrl.jpg')}}" style="width: 40px; height: 40px;">
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- <script src="{{asset('public/frontend/')}}js/jquery-3.2.1.slim.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(window).scroll(function(){
+      if($(this).scrollTop()>300){
+        $('.gotoup').fadeIn();
+      }else{
+        $('.gotoup').fadeOut();
+      }
+    });
+    $('.gotoup').click(function(){
+      $('html,body').animate({scrollTop:0},1000);
+    });
+  });
+</script>
+<script src="{{asset('public/frontend/js/popper.min.js')}}"></script>
+<script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<div class="site-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-4">
-                <div class="footer-logo">
-                    <a href="index.html">
-                        <img src="{{asset('public/frontend/')}}images/logo.png" alt="">
-                    </a>
-                </div>
-            </div> <!-- /.col-md-4 -->
-            <div class="col-md-4 col-sm-4">
-                <div class="copyright">
-                    <span>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-                        Copyright &copy; 2014 <a href="#">Company Name</a>
-
-
-                    <!--
-                    | Design: <a rel="nofollow" href="http://www.templatemo.com" target="_parent">templatemo</a>
-                    -->
-
-                    </span>
-                </div>
-            </div> <!-- /.col-md-4 -->
-            <div class="col-md-4 col-sm-4">
-                <ul class="social-icons">
-                    <li><a href="#" class="fa fa-facebook"></a></li>
-                    <li><a href="#" class="fa fa-twitter"></a></li>
-                    <li><a href="#" class="fa fa-linkedin"></a></li>
-                    <li><a href="#" class="fa fa-flickr"></a></li>
-                    <li><a href="#" class="fa fa-rss"></a></li>
-                </ul>
-            </div> <!-- /.col-md-4 -->
-        </div> <!-- /.row -->
-    </div> <!-- /.container -->
-</div> <!-- /.site-footer -->
-
-<script src="{{asset('public/frontend/js/vendor/jquery-1.11.0.min.js')}}"></script>
-<script>window.jQuery || document.write('<script src="{{asset('public/frontend/js/vendor/jquery-1.11.0.min.js')}}"><\/script>')</script>
-<script src="{{asset('public/frontend/js/bootstrap.js')}}"></script>
-<script src="{{asset('public/frontend/js/plugins.js')}}"></script>
-<script src="{{asset('public/frontend/js/main.js')}}"></script>
-<!-- templatemo 409 travel -->
 </body>
 </html>

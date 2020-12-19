@@ -2,45 +2,21 @@
 
 @section('content')
 
-<div class="page-top" id="templatemo_about">
-</div> <!-- /.page-header -->
+<!-- Banner Section -->
+<section class="banner_part">
+  <img src="{{asset('public/frontend/image/banner.jpg')}}" style="width: 100%">
+</section>
 
-<div class="middle-content">
-    <div class="container">
+<!-- About us Section -->
+<section class="about_us">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 style="padding-top: 15px;padding-bottom: 5px;border-bottom: 1px solid black;width: 11%;">About Us</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="row"><!-- first row -->
-
-          <div class="col-md-6"><!-- first column -->
-                <div class="widget-item">
-                    <h3 class="widget-title">Our Company</h3>
-                    <div class="sample-thumb">
-                        <img src="{{asset('public/frontend/images/about_1.jpg')}}" alt="about us" title="about us">
-                    </div> <!-- /.sample-thumb -->
-                    <h4 class="consult-title">Vestibulum sodales tempus lacus</h4>
-                    <p>Duis mattis neque vel rutrum finibus. Mauris vel tincidunt purus. Aenean laoreet ornare purus. Nunc condimentum augue sed massa iaculis, vel blandit sapien consectetur. Curabitur eu aliquam erat. Etiam sollicitudin est eu turpis dapibus aliquet. Ut vitae lacus vel nulla iaculis interdum.<br><br>
-      Suspendisse convallis congue tellus, nec ultricies sem molestie ac. Nunc lobortis elit orci, vitae suscipit urna dictum id. Nullam at elementum magna. Vivamus sit amet ipsum tortor. Nullam molestie eros quis risus pellentesque, eget pellentesque mauris placerat.</p>
-                </div> <!-- /.widget-item -->
-            </div> <!-- /.col-md-4 -->
-
-            <div class="col-md-6"><!-- second column -->
-                <div class="widget-item">
-                    <h3 class="widget-title">Our Team</h3>
-                    <div class="sample-thumb">
-                        <img src="{{asset('public/frontend/images/about_2.jpg')}}" alt="company" title="company">
-                    </div> <!-- /.sample-thumb -->
-                    <h4 class="consult-title">Cum sociis natoque penatibus et magnis</h4>
-                    <p>Curabitur eu aliquam erat. Etiam sollicitudin est eu turpis dapibus aliquet. Ut vitae lacus vel nulla iaculis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br><br>
-      In hac habitasse platea dictumst. Nulla mollis nisl id ipsum faucibus lacinia. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam sit amet ultricies mauris. Nulla fermentum nisl felis, id blandit nunc vehicula vel.</p>
-                </div> <!-- /.widget-item -->
-            </div> <!-- /.col-md-4 -->
-
-
-
-        </div> <!-- /.row first -->
-
-
-
-    </div> <!-- /.container -->
-</div> <!-- /.middle-content -->
-
-@endesection
+@endsection

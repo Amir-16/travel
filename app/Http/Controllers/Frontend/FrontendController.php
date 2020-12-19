@@ -13,18 +13,11 @@ class FrontendController extends Controller
       return view('frontend.index');
     }
 
-    public function services(){
-      return view('frontend.Services');
-    }
-
     public function contact(){
       return view('frontend.contact');
     }
     public function about(){
       return view('frontend.about');
-    }
-    public function events(){
-      return view('frontend.events');
     }
 
 }

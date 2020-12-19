@@ -23,10 +23,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/','FrontEnd\FrontendController@index');
 
-Route::get('/services','FrontEnd\FrontendController@services');
-
 Route::get('/contact','FrontEnd\FrontendController@contact');
 
-Route::get('/events','FrontEnd\FrontendController@events');
-
 Route::get('/about','FrontEnd\FrontendController@about');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
