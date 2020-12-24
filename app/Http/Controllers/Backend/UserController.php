@@ -32,7 +32,7 @@ class UserController extends Controller
       $data->email =$request->email;
       $data->password= bcrypt($request->password);
       $data->save();
-      return redirect()->route('users.view');
+      return redirect()->route('users.view')->with('success','Data Saved successfully');
 
     }
 
@@ -43,17 +43,31 @@ class UserController extends Controller
 
     }
     public function update(Request $request,$id){
-      $this->validate($request,[
-        'name' =>'required',
-        'email'=>'required|unique:users,email'
-      ]);
+
       $data = User::find($id);
       $data->usertype=$request->usertype;
       $data->name = $request->name;
       $data->email =$request->email;
       $data->save();
-      return redirect()->route('users.view');
+      $notification=array(
+        'message'=>'Data Updated successfully',
+          'alert-type'=>'success'
+      );
+      return redirect()->route('users.view')->with($notification);
 
+
+
+    }
+
+    public function delete($id){
+      $user=User::find($id);
+      $user->delete();
+      return redirect()->route('users.view');
+      $notification=array(
+        'message'=>'Data Updated successfully',
+          'alert-type'=>'success'
+      );
+      return redirect()->route('users.view')->with($notification);
     }
 
   }

@@ -37,6 +37,26 @@ Route::prefix('users')->group(function(){
   Route::get('/edit/{id}','Backend\UserController@edit')->name('users.edit');
   Route::post('/store','Backend\UserController@store')->name('users.store');
   Route::post('/update/{id}','Backend\UserController@update')->name('users.update');
-  Route::get('/delete','Backend\UserController@delete')->name('users.delete');
+  Route::get('/delete/{id}','Backend\UserController@delete')->name('users.delete');
+});
+
+//profiles Route
+Route::prefix('profile')->group(function(){
+  Route::get('/view','Backend\ProfileController@index')->name('profiles.view');
+  Route::get('/edit','Backend\ProfileController@edit')->name('profiles.edit');
+  Route::post('/update','Backend\ProfileController@update')->name('profiles.update');
+
+});
+
+//Doner Routes
+Route::prefix('doners')->group(function(){
+
+  Route::get('/view','Backend\DonerController@index')->name('doners.view');
+  Route::get('/add','Backend\DonerController@add')->name('doners.add');
+  Route::get('/edit/{id}','Backend\DonerController@edit')->name('doners.edit');
+  Route::post('/store','Backend\DonerController@store')->name('doners.store');
+  Route::post('/update/{id}','Backend\DonerController@update')->name('doners.update');
+  Route::get('/delete/{id}','Backend\DonerController@delete')->name('doners.delete');
+
 
 });

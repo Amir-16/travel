@@ -33,7 +33,7 @@
           <div class="card">
             <div class="card-header">
               <h3>User list
-                <a class="btn btn-success float-right" href="{{route('users.add')}}"> <i class="fa fa-plus-circle"></i> Add User</a>
+                <a class="btn btn-success float-right" href="{{route('doners.add')}}"> <i class="fa fa-plus-circle"></i> Add Doner</a>
               </h3>
             </div><!-- /.card-header -->
             <div class="card-body">
@@ -41,21 +41,27 @@
                 <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Role</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Mobile No</th>
+                    <th>Address</th>
+                    <th>Blood Group</th>
+                    <th>Gender</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($alldata as $key=> $user)
+              @foreach($allData as $key=>$doner)
                   <tr>
                     <td>{{$key+1}}</td>
-                    <td>{{$user->usertype}}</td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
-                    <td> <a title="edit" class="btn btn-sm btn-primary" href="{{route('users.edit',$user->id)}}"> <i class="fa fa-edit"> </i> </a>
-                      <a title="delete" id="delete" class="btn btn-sm btn-danger" href="{{route('users.delete',$user->id)}}"> <i class="fa fa-trash"> </i></a>
+                    <td>{{$doner->name}}</td>
+                    <td>{{$doner->email}}</td>
+                    <td>{{$doner->mobile}}</td>
+                    <td>{{$doner->address}}</td>
+                    <td>{{$doner->blood_group}}</td>
+                    <td>{{$doner->gender}}</td>
+                    <td> <a title="edit" class="btn btn-sm btn-primary" href=""> <i class="fa fa-edit"> </i> </a>
+                      <a title="delete" id="delete" class="btn btn-sm btn-danger" href=""> <i class="fa fa-trash"> </i></a>
                     </td>
                   </tr>
                   @endforeach

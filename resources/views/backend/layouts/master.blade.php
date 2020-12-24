@@ -25,6 +25,17 @@
   <link rel="stylesheet" href="{{asset('public/backend/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('public/backend/plugins/summernote/summernote-bs4.min.css')}}">
+  <!--notifyjs css -->
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.min.css" rel="stylesheet" type="text/css" />
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.min.css" rel="stylesheet" type="text/css" />
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/styles/alert-blackgloss.min.css" rel="stylesheet" type="text/css" />
+
+
 
   <!-- DataTables -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -35,6 +46,13 @@
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!--jquery validation -->
+  <!-- jQuery -->
+  <!-- Chart -->
+    <link rel="stylesheet" type="text/css" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css')}}">
+    <!--sweetLalert-->
+    <link rel="stylesheet" href="sweetalert2.min.css">
+  <script src="{{asset('public/backend/plugins/jquery/jquery.min.js')}}"></script>
+
 
 </head>
 
@@ -109,14 +127,24 @@
 
 @yield('content')
 
-@endguest
+@if(session()->has('success'))
+<script type="text/javascript">
+$(function(){
+  $.notify("{{session()->get('success')}}",{globalPosition:'top right',className:'success'});
+});
+
+</script>
+@endif
+
+
+
 
 
 <footer class="main-footer">
-  <strong>Copyright &copy; 2020 <a href="">techbuzz</a>.</strong>
+  <strong>Copyright &copy; 2020 <a href=""></a> </strong>
   All rights reserved.
   <div class="float-right d-none d-sm-inline-block">
-    <b>Version</b> 3.1.0-rc
+    <b>developed by</b> Amirul Islam
   </div>
 </footer>
 
@@ -128,8 +156,8 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="{{asset('public/backend/plugins/jquery/jquery.min.js')}}"></script>
+@endguest
+
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('public/backend/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -184,12 +212,36 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{asset('public/backend')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <!-- jquery-validation -->
-<script src="{{asset('public/backend')}}/plugins/jquery-validation/additional-methods.min.js"></script>
-<script src="{{asset('public/backend')}}/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="{{asset('public/backend/plugins/jquery-validation/additional-methods.min.js')}}"></script>
+<script src="{{asset('public/backend/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
  crossorigin="anonymous"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.79/jquery.form-validator.min.js" integrity="sha512-7+hQkXGIswtBWoGbyajZqqrC8sa3OYW+gJw5FzW/XzU/lq6kScphPSlj4AyJb91MjPkQc+mPQ3bZ90c/dcUO5w=="
   crossorigin="anonymous"></script>
+
+ <!---sweet alert -->
+ <script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
+
+ <script src="{{asset('https://cdn.jsdelivr.net/npm/sweetalert2@10')}}"></script>
+  <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+  <script>
+  @if(Session::has('message'))
+    var type="{{Session::get('alert-type','info')}}"
+    switch(type){
+      case 'info':
+       toastr.info("{{ Session::get('message') }}");
+       break;
+      case 'success':
+        toastr.success("{{ Session::get('message') }}");
+        break;
+      case 'warning':
+       toastr.warning("{{ Session::get('message') }}");
+        break;
+      case 'error':
+        toastr.error("{{ Session::get('message') }}");
+        break;
+    }
+  @endif
 
 <script>
 
@@ -200,5 +252,47 @@ $(document).ready(function() {
   new $.fn.dataTable.FixedHeader( table );
 } );
 </script>
+<script type="text/javascript">
+$(function(){
+  $(document).on('click','#delete',function(e){
+  e.preventDefault();
+var link = $(this).attr("href");
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "delete data!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+          window.location.href = link;
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
+
+  });
+});
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#image').change(function(e){
+    var reader =new FileReader();
+    reader.onload =function(e){
+      $('#showImage').attr('src',e.target.result);
+    }
+    reader.readAsDataURL(e.target.files['0']);
+  });
+
+});
+
+</script>
+
 </body>
 </html>
