@@ -51,9 +51,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css')}}">
     <!--sweetLalert-->
     <link rel="stylesheet" href="sweetalert2.min.css">
-  <script src="{{asset('public/backend/plugins/jquery/jquery.min.js')}}"></script>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{asset('public/backend/plugins/jquery/jquery.min.js')}}"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -214,13 +214,9 @@ $.widget.bridge('uibutton', $.ui.button)
 <!-- jquery-validation -->
 <script src="{{asset('public/backend/plugins/jquery-validation/additional-methods.min.js')}}"></script>
 <script src="{{asset('public/backend/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
- crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.79/jquery.form-validator.min.js" integrity="sha512-7+hQkXGIswtBWoGbyajZqqrC8sa3OYW+gJw5FzW/XzU/lq6kScphPSlj4AyJb91MjPkQc+mPQ3bZ90c/dcUO5w=="
-  crossorigin="anonymous"></script>
-
  <!---sweet alert -->
  <script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
+ <script src="{{asset('public/backend/plugins/jquery-validation/jquery.password-validation.js')}}"></script>
 
  <script src="{{asset('https://cdn.jsdelivr.net/npm/sweetalert2@10')}}"></script>
   <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>

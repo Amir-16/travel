@@ -41,6 +41,15 @@
           </a>
         </li>
       </ul>
+      <!--Change password -->
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{route('profiles.password.view')}}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Change password</p>
+          </a>
+        </li>
+      </ul>
       <!--doner -->
       <ul class="nav nav-treeview">
         <li class="nav-item">

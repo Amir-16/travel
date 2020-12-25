@@ -43,4 +43,9 @@ class ProfileController extends Controller
       return redirect()->route('profiles.view');
 
     }
+
+    public function passwordView(){
+      //dd('ok');
+      return view('backend.user.view-password');
+    }
 }
