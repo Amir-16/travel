@@ -38,14 +38,22 @@ class ProfileController extends Controller
         $file->move(public_path('upload/user_images'),$fileName);
         $data['image']=$fileName;
       }
-
       $data->save();
       return redirect()->route('profiles.view');
-
     }
-
     public function passwordView(){
       //dd('ok');
-      return view('backend.user.view-password');
+      return view('backend.user.edit-password');
+    }
+    public function passwordUpdate(Request $request){
+      if(Auth::attempt(['id'=>Auth::user()->id,'password'=>$request->current_password])){
+        $user=User::find(Auth::user()->id);
+        $user->password =bcrypt($request->new_password);
+        $user->save();
+        return redirect()->route('profiles.view');
+
+      }else{
+        return redirect()->back()->with('error','Sorry! your password doesnot match !');
+      }
     }
 }

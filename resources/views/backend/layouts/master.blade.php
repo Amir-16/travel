@@ -52,7 +52,7 @@
     <!--sweetLalert-->
     <link rel="stylesheet" href="sweetalert2.min.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
     <script src="{{asset('public/backend/plugins/jquery/jquery.min.js')}}"></script>
 </head>
 
@@ -105,7 +105,7 @@
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
       <img src="{{asset('public/backend/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
     <!-- Sidebar -->
@@ -113,10 +113,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('public/backend/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{(!empty(Auth::user()->image))?url('public/upload/user_images/'.Auth::user()->image):url('public/upload/no-image.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -132,13 +132,17 @@
 $(function(){
   $.notify("{{session()->get('success')}}",{globalPosition:'top right',className:'success'});
 });
-
 </script>
 @endif
 
+@if(session()->has('error'))
+<script type="text/javascript">
+$(function(){
+$.notify("{{session()->get('error')}}",{globalPosition:'top right', className:'error'});
 
-
-
+});
+</script>
+@endif
 
 <footer class="main-footer">
   <strong>Copyright &copy; 2020 <a href=""></a> </strong>
@@ -216,7 +220,6 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{asset('public/backend/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
  <!---sweet alert -->
  <script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
- <script src="{{asset('public/backend/plugins/jquery-validation/jquery.password-validation.js')}}"></script>
 
  <script src="{{asset('https://cdn.jsdelivr.net/npm/sweetalert2@10')}}"></script>
   <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>

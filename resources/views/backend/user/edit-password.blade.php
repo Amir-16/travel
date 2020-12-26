@@ -36,16 +36,16 @@
               </h3>
             </div><!-- /.card-header -->
             <div class="card-body">
-              <form action="{{route('users.store')}}" id="myform" method="post">
+              <form action="{{route('profiles.password.update')}}" id="myform" method="post">
                 @csrf
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="password">Curent Password</label>
-                    <input type="password" name="password" id="password" class="form-control" autocomplete="">
+                    <input type="password" name="current_password" id="current_password" class="form-control" autocomplete="">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="password">Password</label>
-                    <input type="password" name="new_password" id=" New password" class="form-control" autocomplete="">
+                    <label for="password">New Password</label>
+                    <input type="password" name="new_password" id="new_password" class="form-control" autocomplete="">
                   </div>
 
                   <div class="form-group col-md-4">
@@ -74,17 +74,11 @@
 <!-- /.content-wrapper -->
 
 <script type="text/javascript">
-$(function () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-      alert( "Form successful submitted!" );
-    }
-  });
+$(document).ready(function () {
   $('#myform').validate({
     rules: {
-      password: {
+      current_password: {
         required: true,
-        minlength: 6,
       },
       new_password: {
         required: true,
@@ -95,8 +89,8 @@ $(function () {
       }
     },
     messages: {
-      password: {
-        required: "Please enter Curent password",
+      current_password: {
+        required: "Please enter Current password",
       },
       new_password: {
         required: "Please provide a new password",

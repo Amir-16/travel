@@ -110,11 +110,6 @@
 
 <script type="text/javascript">
 $(function () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-      alert( "Form successful submitted!" );
-    }
-  });
   $('#myform').validate({
     rules: {
       name: {
