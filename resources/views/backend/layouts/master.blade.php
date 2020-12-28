@@ -35,8 +35,6 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/styles/alert-blackgloss.min.css" rel="stylesheet" type="text/css" />
 
-
-
   <!-- DataTables -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css">
@@ -45,15 +43,18 @@
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+  <ajax toaster css>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
   <!--jquery validation -->
-  <!-- jQuery -->
-  <!-- Chart -->
-    <link rel="stylesheet" type="text/css" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css')}}">
+
     <!--sweetLalert-->
     <link rel="stylesheet" href="sweetalert2.min.css">
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
     <script src="{{asset('public/backend/plugins/jquery/jquery.min.js')}}"></script>
+
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -221,26 +222,8 @@ $.widget.bridge('uibutton', $.ui.button)
  <!---sweet alert -->
  <script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
 
- <script src="{{asset('https://cdn.jsdelivr.net/npm/sweetalert2@10')}}"></script>
-  <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
-  <script>
-  @if(Session::has('message'))
-    var type="{{Session::get('alert-type','info')}}"
-    switch(type){
-      case 'info':
-       toastr.info("{{ Session::get('message') }}");
-       break;
-      case 'success':
-        toastr.success("{{ Session::get('message') }}");
-        break;
-      case 'warning':
-       toastr.warning("{{ Session::get('message') }}");
-        break;
-      case 'error':
-        toastr.error("{{ Session::get('message') }}");
-        break;
-    }
-  @endif
+<!-- delete sweetalert2 -->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <script>
 
@@ -279,6 +262,7 @@ var link = $(this).attr("href");
 });
 
 </script>
+
 <script type="text/javascript">
 $(document).ready(function(){
   $('#image').change(function(e){
@@ -292,6 +276,30 @@ $(document).ready(function(){
 });
 
 </script>
+
+<!---Ajax Toaster Notifications -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+ <script>
+	 @if(Session::has('message'))
+	   var type="{{Session::get('alert-type','info')}}"
+	   switch(type){
+		   case 'info':
+				toastr.info("{{ Session::get('message') }}");
+				break;
+		   case 'success':
+			   toastr.success("{{ Session::get('message') }}");
+			   break;
+		   case 'warning':
+			  toastr.warning("{{ Session::get('message') }}");
+			   break;
+		   case 'error':
+			   toastr.error("{{ Session::get('message') }}");
+			   break;
+	   }
+	 @endif
+  </script>
 
 </body>
 </html>

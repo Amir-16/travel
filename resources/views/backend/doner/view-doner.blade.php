@@ -61,7 +61,7 @@
                     <td>{{$doner->blood_group}}</td>
                     <td>{{$doner->gender}}</td>
                     <td> <a title="edit" class="btn btn-sm btn-primary" href=""> <i class="fa fa-edit"> </i> </a>
-                      <a title="delete" id="delete" class="btn btn-sm btn-danger" href=""> <i class="fa fa-trash"> </i></a>
+                      <a title="delete" id="delete" class="btn btn-sm btn-danger" href="{{route('doners.delete',$doner->id)}}"> <i class="fa fa-trash"> </i></a>
                     </td>
                   </tr>
                   @endforeach

@@ -39,7 +39,11 @@ class ProfileController extends Controller
         $data['image']=$fileName;
       }
       $data->save();
-      return redirect()->route('profiles.view');
+      $notification=array(
+                        'message'=>'Profile Updated Successfully',
+                          'alert-type'=>'success'
+                        );
+                      return redirect()->route('profiles.view')->with($notification);
     }
     public function passwordView(){
       //dd('ok');
@@ -50,10 +54,20 @@ class ProfileController extends Controller
         $user=User::find(Auth::user()->id);
         $user->password =bcrypt($request->new_password);
         $user->save();
-        return redirect()->route('profiles.view');
+        $notification=array(
+                          'message'=>'Password Updated Successfully',
+                            'alert-type'=>'success'
+                          );
+                        return redirect()->route('profile.view')->with($notification);
 
       }else{
-        return redirect()->back()->with('error','Sorry! your password doesnot match !');
+        $notification=array(
+                            'message'=>'Current Password doesnot match',
+                            'alert-type'=>'error'
+                          );
+                        return redirect()->route('profiles.password.view')->with($notification);
+
       }
     }
+
 }

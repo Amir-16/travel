@@ -32,7 +32,11 @@ class UserController extends Controller
       $data->email =$request->email;
       $data->password= bcrypt($request->password);
       $data->save();
-      return redirect()->route('users.view')->with('success','Data Saved successfully');
+      $notification=array(
+                            'message'=>'User Successfully Added',
+                            'alert-type'=>'success'
+                             );
+                             return redirect()->route('users.view')->with($notification);
 
     }
 
@@ -50,24 +54,22 @@ class UserController extends Controller
       $data->email =$request->email;
       $data->save();
       $notification=array(
-        'message'=>'Data Updated successfully',
-          'alert-type'=>'success'
-      );
-      return redirect()->route('users.view')->with($notification);
-
-
-
+                          'message'=>'User Updated successfully',
+                          'alert-type'=>'success'
+                          );
+                    return redirect()->route('users.view')->with($notification);
     }
 
     public function delete($id){
       $user=User::find($id);
       $user->delete();
-      return redirect()->route('users.view');
       $notification=array(
-        'message'=>'Data Updated successfully',
-          'alert-type'=>'success'
-      );
-      return redirect()->route('users.view')->with($notification);
+                        'message'=>'Data Deleted!',
+                          'alert-type'=>'error'
+                        );
+                      return redirect()->route('users.view')->with($notification);
     }
 
-  }
+
+
+}

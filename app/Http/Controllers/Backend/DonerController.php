@@ -33,5 +33,10 @@ class DonerController extends Controller
       return redirect()->route('doners.view');
 
     }
+    public function delete($id){
+      $doner=Doner::find($id);
+      $doner->delete();
+      return redirect()->route('doners.view');
+    }
 
 }
