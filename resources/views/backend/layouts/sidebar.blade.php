@@ -56,16 +56,43 @@ $route =Route::current()->getName();
           </a>
         </li>
       </ul>
-      <!--doner -->
+    </li>
+
+    <!--Logo sidebar -->
+    <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+          Manage Logo
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="{{route('doners.view')}}" class="nav-link {{($route=='doners.view')?'active':''}}">
+          <a href="{{route('logos.view')}}" class="nav-link {{($route=='logo.view')?'active':''}}">
             <i class="far fa-circle nav-icon"></i>
-            <p>Doner profile</p>
+            <p>View Logo</p>
           </a>
         </li>
       </ul>
     </li>
-    </ul>
+    <!--Slider sidebar -->
+    <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+          Manage Slider
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{route('sliders.view')}}" class="nav-link {{($route=='sliders.view')?'active':''}}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>View Slider</p>
+          </a>
+        </li>
+      </ul>
+    </li>
 </nav>
 <!-- /.sidebar-menu -->

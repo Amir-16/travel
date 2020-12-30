@@ -41,8 +41,8 @@ class UserController extends Controller
     }
 
     public function edit($id) {
-      $editData=User::find($id);
-    return view('backend.user.edit-user',compact('editData'));
+      $editData=Logo::find($id);
+      return view('backend.user.edit-user',compact('editData'));
     //  dd($editData);
 
     }
@@ -62,9 +62,12 @@ class UserController extends Controller
 
     public function delete($id){
       $user=User::find($id);
+      if(file_exists('public/upload/user_images/'.$user->image) AND ! empty($user->image)){
+        unlink('public/upload/user_images/'.$user->image);
+      }
       $user->delete();
       $notification=array(
-                        'message'=>'Data Deleted!',
+                        'message'=>'User Deleted!',
                           'alert-type'=>'error'
                         );
                       return redirect()->route('users.view')->with($notification);

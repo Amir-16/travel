@@ -29,7 +29,8 @@ Route::get('/about','FrontEnd\FrontendController@about');
 
 Auth::routes();
 
-//Backend Routes groups
+//Backend Routes groups with middleware
+
 Route::group(['middleware'=>'auth'],function(){
 
   Route::prefix('users')->group(function(){
@@ -51,21 +52,27 @@ Route::group(['middleware'=>'auth'],function(){
 
 
   });
+  //Logos Routes
 
-});
+  Route::prefix('logos')->group(function(){
 
-
-  // Doner Routes & middleware
-Route::group(['middleware'=>'test'],function(){
-
-    Route::prefix('doners')->group(function(){
-    Route::get('/view','Backend\DonerController@index')->name('doners.view')->middleware('test');
-    Route::get('/add','Backend\DonerController@add')->name('doners.add');
-    Route::get('/edit/{id}','Backend\DonerController@edit')->name('doners.edit');
-    Route::post('/store','Backend\DonerController@store')->name('doners.store');
-    Route::post('/update/{id}','Backend\DonerController@update')->name('doners.update');
-    Route::get('/delete/{id}','Backend\DonerController@delete')->name('doners.delete');
-
+    Route::get('/view','Backend\LogoController@index')->name('logos.view');
+    Route::get('/add','Backend\LogoController@add')->name('logos.add');
+    Route::get('/edit/{id}','Backend\LogoController@edit')->name('logos.edit');
+    Route::post('/store','Backend\LogoController@store')->name('logos.store');
+    Route::post('/update/{id}','Backend\LogoController@update')->name('logos.update');
+    Route::get('/delete/{id}','Backend\LogoController@delete')->name('logos.delete');
   });
+
+  Route::prefix('sliders')->group(function(){
+
+    Route::get('/view','Backend\SliderController@index')->name('sliders.view');
+    Route::get('/add','Backend\SliderController@add')->name('sliders.add');
+    Route::get('/edit/{id}','Backend\SliderController@edit')->name('sliders.edit');
+    Route::post('/store','Backend\SliderController@store')->name('sliders.store');
+    Route::post('/update/{id}','Backend\SliderController@update')->name('sliders.update');
+    Route::get('/delete/{id}','Backend\SliderController@delete')->name('sliders.delete');
+  });
+
 
 });

@@ -8,12 +8,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">User Management</h1>
+          <h1 class="m-0">Logo Management</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">User </li>
+            <li class="breadcrumb-item active">Logo </li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -31,41 +31,33 @@
         <section class="col-md-12">
           <!-- Custom tabs (Charts with tabs)-->
           <div class="card">
+            @if($countLogo < 1 )
             <div class="card-header">
-              <h3>User list
-                <a class="btn btn-success float-right" href="{{route('doners.add')}}"> <i class="fa fa-plus-circle"></i> Add Doner</a>
+              <h3>Logo list
+                <a class="btn btn-success float-right" href="{{route('logos.add')}}"> <i class="fa fa-plus-circle"></i> Add Logo</a>
               </h3>
             </div><!-- /.card-header -->
+            @endif
             <div class="card-body">
               <table id="example" class="table table-bordered table-hover">
                 <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Mobile No</th>
-                    <th>Address</th>
-                    <th>Blood Group</th>
-                    <th>Gender</th>
+                    <th>Image</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-              @foreach($allData as $key=>$doner)
+                  @foreach($allData as $key=> $logo)
                   <tr>
                     <td>{{$key+1}}</td>
-                    <td>{{$doner->name}}</td>
-                    <td>{{$doner->email}}</td>
-                    <td>{{$doner->mobile}}</td>
-                    <td>{{$doner->address}}</td>
-                    <td>{{$doner->blood_group}}</td>
-                    <td>{{$doner->gender}}</td>
-                    <td> <a title="edit" class="btn btn-sm btn-primary" href=""> <i class="fa fa-edit"> </i> </a>
-                      <a title="delete" id="delete" class="btn btn-sm btn-danger" href="{{route('doners.delete',$doner->id)}}"> <i class="fa fa-trash"> </i></a>
+                    <td><img src="{{(!empty($logo->image))?url('public/upload/logo_images/'.$logo->image):url('public/upload/no-image.jpg')}}"
+                      width="60px" height="80px" ></td>
+                    <td> <a title="edit" class="btn btn-sm btn-primary" href="{{route('logos.edit',$logo->id)}}"> <i class="fa fa-edit"> </i> </a>
+                      <a title="delete" id="delete" class="btn btn-sm btn-danger" href="{{route('logos.delete',$logo->id)}}"> <i class="fa fa-trash"> </i></a>
                     </td>
                   </tr>
                   @endforeach
-
                 </tbody>
               </table>
 
