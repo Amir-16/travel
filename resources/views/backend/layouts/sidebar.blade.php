@@ -130,5 +130,23 @@ $route =Route::current()->getName();
         </li>
       </ul>
     </li>
+    <!--Vision  -->
+    <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+           NewsEvent Management
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{route('news_events.view')}}" class="nav-link {{($route=='news_events.view')?'active':''}}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>View NewsEvent</p>
+          </a>
+        </li>
+      </ul>
+    </li>
 </nav>
 <!-- /.sidebar-menu -->
