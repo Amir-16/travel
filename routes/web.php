@@ -74,5 +74,26 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/delete/{id}','Backend\SliderController@delete')->name('sliders.delete');
   });
 
+    Route::prefix('missions')->group(function(){
+
+      Route::get('/view','Backend\MissionController@index')->name('missions.view');
+      Route::get('/add','Backend\MissionController@add')->name('missions.add');
+      Route::get('/edit/{id}','Backend\MissionController@edit')->name('missions.edit');
+      Route::post('/store','Backend\MissionController@store')->name('missions.store');
+      Route::post('/update/{id}','Backend\MissionController@update')->name('missions.update');
+      Route::get('/delete/{id}','Backend\MissionController@delete')->name('missions.delete');
+
+    });
+    Route::prefix('visions')->group(function(){
+
+      Route::get('/view','Backend\VisionController@index')->name('visions.view');
+      Route::get('/add','Backend\VisionController@add')->name('visions.add');
+      Route::get('/edit/{id}','Backend\VisionController@edit')->name('visions.edit');
+      Route::post('/store','Backend\VisionController@store')->name('visions.store');
+      Route::post('/update/{id}','Backend\VisionController@update')->name('visions.update');
+      Route::get('/delete/{id}','Backend\VisionController@delete')->name('visions.delete');
+
+    });
+
 
 });

@@ -15,7 +15,7 @@ $route =Route::current()->getName();
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-copy"></i>
         <p>
-          Manage User
+           User Management
           <i class="fas fa-angle-left right"></i>
         </p>
       </a>
@@ -35,7 +35,7 @@ $route =Route::current()->getName();
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-copy"></i>
         <p>
-          Manage Profile
+           Profile Management
           <i class="fas fa-angle-left right"></i>
         </p>
       </a>
@@ -63,7 +63,7 @@ $route =Route::current()->getName();
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-copy"></i>
         <p>
-          Manage Logo
+           Logo Management
           <i class="fas fa-angle-left right"></i>
         </p>
       </a>
@@ -76,12 +76,12 @@ $route =Route::current()->getName();
         </li>
       </ul>
     </li>
-    <!--Slider sidebar -->
+    <!--Slider  -->
     <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-copy"></i>
         <p>
-          Manage Slider
+           Slider Management
           <i class="fas fa-angle-left right"></i>
         </p>
       </a>
@@ -90,6 +90,42 @@ $route =Route::current()->getName();
           <a href="{{route('sliders.view')}}" class="nav-link {{($route=='sliders.view')?'active':''}}">
             <i class="far fa-circle nav-icon"></i>
             <p>View Slider</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!--Mission  -->
+    <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+           Mission Management
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{route('missions.view')}}" class="nav-link {{($route=='missions.view')?'active':''}}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>View mission</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!--Vision  -->
+    <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+           Vision Management
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{route('visions.view')}}" class="nav-link {{($route=='visions.view')?'active':''}}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>View Vision</p>
           </a>
         </li>
       </ul>
