@@ -43,16 +43,18 @@
 
                   <div class="form-group col-md-4">
                     <label for="date">Date</label>
-                    <input type="date" name="date" value="{{$editData->date}}"class="form-control">
+                    <input type="text" name="date"  id="datepicker" class="form-control" placeholder="YYYY--MM-DD"
+                    value="{{$editData->date}}" readonly>
                   </div>
 
                   <div class="form-group col-md-4">
                     <label for="short_title">Short Title</label>
                     <input type="text" name="short_title" value="{{$editData->short_title}}" class="form-control">
                   </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-12">
                     <label for="long_title">Long Title</label>
-                    <input type="text" name="long_title" value="{{$editData->long_title}}" class="form-control" >
+                    <textarea name="long_title"
+                    class="form-control" rows="5">{{$editData->long_title}}</textarea>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="image">Image</label>
@@ -63,8 +65,8 @@
                   style="width: 150px;height: 160px; border:1px solid #000000">
                   </div>
 
-                  <div class="form-group col-md-6" style="padding-top: 30px">
-                    <input type="submit" value="Submit" class="btn btn-primary">
+                  <div class="form-group col-md-2" style="padding-top: 30px">
+                    <input type="submit" value="Update" class="btn btn-primary">
                   </div>
 
                 </div>
@@ -84,5 +86,11 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script>
+      $('#datepicker').datepicker({
+          uiLibrary: 'bootstrap4',
+          format:'yyyy-mm-dd'
+      });
+  </script>
 
 @endsection
