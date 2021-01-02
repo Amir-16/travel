@@ -69,7 +69,7 @@ $route =Route::current()->getName();
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="{{route('logos.view')}}" class="nav-link {{($route=='logo.view')?'active':''}}">
+          <a href="{{route('logos.view')}}" class="nav-link {{($route=='logos.view')?'active':''}}">
             <i class="far fa-circle nav-icon"></i>
             <p>View Logo</p>
           </a>
@@ -144,6 +144,44 @@ $route =Route::current()->getName();
           <a href="{{route('news_events.view')}}" class="nav-link {{($route=='news_events.view')?'active':''}}">
             <i class="far fa-circle nav-icon"></i>
             <p>View NewsEvent</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!--Services  -->
+    <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+           Services Management
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{route('services.view')}}" class="nav-link {{($route=='services.view')?'active':''}}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>View services</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!--About  -->
+    <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+           About Management
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{route('about.view')}}" class="nav-link {{($route=='about.view')?'active':''}}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>View about</p>
           </a>
         </li>
       </ul>

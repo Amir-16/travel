@@ -10,7 +10,7 @@ use Auth;
 class SliderController extends Controller
 {
   public function index(){
-    $data['allData']=SLider::all();
+    $data['allData']=Slider::all();
     //dd($data['allData']);
     return view('backend.slider.view-slider',$data);
 
@@ -42,7 +42,7 @@ class SliderController extends Controller
   }
 
   public function edit($id) {
-    $editData=Slider::find($id);
+    $editData=Service::find($id);
   return view('backend.slider.edit-slider',compact('editData'));
   //  dd($editData);
 

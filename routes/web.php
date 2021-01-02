@@ -104,5 +104,39 @@ Route::group(['middleware'=>'auth'],function(){
       Route::get('/delete/{id}','Backend\NewsEventController@delete')->name('news_events.delete');
     });
 
+    Route::prefix('services')->group(function(){
+
+      Route::get('/view','Backend\ServicesController@index')->name('services.view');
+      Route::get('/add','Backend\ServicesController@add')->name('services.add');
+      Route::get('/edit/{id}','Backend\ServicesController@edit')->name('services.edit');
+      Route::post('/store','Backend\ServicesController@store')->name('services.store');
+      Route::post('/update/{id}','Backend\ServicesController@update')->name('services.update');
+      Route::get('/delete/{id}','Backend\ServicesController@delete')->name('services.delete');
+    });
+
+
+    Route::prefix('about')->group(function(){
+
+      Route::get('/view','Backend\AboutController@index')->name('about.view');
+      Route::get('/add','Backend\AboutController@add')->name('about.add');
+      Route::get('/edit/{id}','Backend\AboutController@edit')->name('about.edit');
+      Route::post('/store','Backend\AboutController@store')->name('about.store');
+      Route::post('/update/{id}','Backend\AboutController@update')->name('about.update');
+      Route::get('/delete/{id}','Backend\AboutController@delete')->name('about.delete');
+    });
+
+    Route::prefix('contacts')->group(function(){
+
+      Route::get('/view','Backend\ContactController@index')->name('contacts.view');
+      Route::get('/add','Backend\ContactController@add')->name('contacts.add');
+      Route::get('/edit/{id}','Backend\ContactController@edit')->name('contacts.edit');
+      Route::post('/store','Backend\ContactController@store')->name('contacts.store');
+      Route::post('/update/{id}','Backend\ContactController@update')->name('contacts.update');
+      Route::get('/delete/{id}','Backend\ContactController@delete')->name('contacts.delete');
+    });
+
+
+
+
 
 });
