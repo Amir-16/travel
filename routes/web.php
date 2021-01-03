@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -23,11 +23,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/','FrontEnd\FrontendController@index');
 
-Route::get('/contact','FrontEnd\FrontendController@contact');
+Route::get('/contact','FrontEnd\FrontendController@contact')->name('contact');
 
-Route::get('/about','FrontEnd\FrontendController@about');
+Route::get('/about','FrontEnd\FrontendController@about')->name('about-us');
 
-Auth::routes();
+Route::get('/mission','FrontEnd\FrontendController@mission')->name('our.mission');
+
+Route::get('/vision','FrontEnd\FrontendController@vision')->name('our.vision');
+
 
 //Backend Routes groups with middleware
 

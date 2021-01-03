@@ -11,10 +11,10 @@
 <section class="about_us">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <h3 style="padding-top: 15px;padding-bottom: 5px;border-bottom: 1px solid black;width: 11%;">About Us</h3>
-        <p>{{$abouts->long_title}}</p>
-      </div>
+      <div class="col-md-10">
+          <img src="{{asset('public/upload/mission_image/' .$mission->image)}}" style="border: 1px solid #ddd;padding: 5px;background: #EFEE03;border-radius: 30px;float: left;margin-right: 10px;">
+          <p style="text-align: justify;"><strong>Mission</strong> {{$mission->title}} </p>
+        </div>
     </div>
   </div>
 </section>

@@ -2,36 +2,33 @@
 
 @section('content')
 
+@php
+$count=0;
+@endphp
+
   <!-- Slider Section -->
   <section class="slider_part">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          @foreach($sliders as $key=>$slider)
+          <li data-target="#carouselExampleIndicators" data-slide-to="$key" class="active"></li>
+          @endforeach
         </ol>
         <div class="carousel-inner" role="listbox">
           <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url({{url('public/frontend/image/slider4.jpeg')}})">
+          @foreach($sliders as $slider)
+          <div class="carousel-item @if($count==0){ active } @endif" style="background-image: url({{asset('public/upload/slider_images/'.$slider->image)}})">
             <div class="carousel-caption d-none d-md-block">
-              <h2 class="display-4">First Slide</h2>
-              <p class="lead">This is a description for the first slide.</p>
+              <h2 class="display-4">{{$slider->short_title}}</h2>
+              <p class="lead">{{$slider->long_title}}</p>
             </div>
           </div>
-          <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url({{url('public/frontend/image/slider5.jpg')}})">
-            <div class="carousel-caption d-none d-md-block">
-              <h2 class="display-4">Second Slide</h2>
-              <p class="lead">This is a description for the second slide.</p>
-            </div>
-          </div>
-          <!-- Slide Three - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url({{url('public/frontend/image/slider6.jpg')}})">
-            <div class="carousel-caption d-none d-md-block">
-              <h2 class="display-4">Third Slide</h2>
-              <p class="lead">This is a description for the third slide.</p>
-            </div>
-          </div>
+          @php
+          $count++
+          @endphp
+
+          @endforeach
+          
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -53,12 +50,12 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <img src="{{asset('public/frontend/image/mission.jpg')}}" style="border: 1px solid #ddd;padding: 5px;background: #EFEE03;border-radius: 30px;float: left;margin-right: 10px;">
-          <p style="text-align: justify;"><strong>Mission</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+          <img src="{{asset('public/upload/mission_image/' .$mission->image)}}" style="border: 1px solid #ddd;padding: 5px;background: #EFEE03;border-radius: 30px;float: left;margin-right: 10px;">
+          <p style="text-align: justify;"><strong>Mission</strong> {{$mission->title}} </p>
         </div>
         <div class="col-md-6">
-          <img src="{{asset('public/frontend/image/vision.jpg')}}" style="border: 1px solid #ddd;padding: 5px;background: #EFEE03;border-radius: 30px;float: left;margin-right: 10px;">
-          <p style="text-align: justify;"><strong>Vision</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+          <img src="{{asset('public/upload/vision_images/'.$vision->image)}}" style="border: 1px solid #ddd;padding: 5px;background: #EFEE03;border-radius: 30px;float: left;margin-right: 10px;">
+          <p style="text-align: justify;"><strong>Vision</strong> {{$vision->title}} </p>
         </div>
       </div>
     </div>
@@ -78,31 +75,19 @@
                 <th>Date</th>
                 <th>Image</th>
                 <th>Title</th>
-                <th>Action</th>
+                <th>Details</th>
               </tr>
             </thead>
             <tbody>
+              @foreach($newsEvents as $key=>$newsevent)
               <tr>
-                <td>1</td>
-                <td>24/11/2019</td>
-                <td><img src="{{asset('public/frontend/image/news1.jpg')}}"></td>
-                <td>Dummy content</td>
-                <td><a href="" class="btn btn-info">Details</a></td>
+                <td>{{$key+1}}</td>
+                <td>{{$newsevent->date}}</td>
+                <td><img src="{{asset('public/upload/news_images/'.$newsevent->image)}}"></td>
+                <td>{{$newsevent->short_title}}</td>
+                <td>{{$newsevent->long_title}}</td>
               </tr>
-              <tr>
-                <td>2</td>
-                <td>25/11/2019</td>
-                <td><img src="{{asset('public/frontend/image/news2.jpg')}}"></td>
-                <td>Dummy content2</td>
-                <td><a href="" class="btn btn-info">Details</a></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>26/11/2019</td>
-                <td><img src="{{asset('public/frontend/image/news3.jpg')}}"></td>
-                <td>Dummy content3</td>
-                <td><a href="" class="btn btn-info">Details</a></td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -113,33 +98,40 @@
   <section class="our_services">
     <div class="container" style="padding-top: 15px">
       <!-- Nav tab -->
+      
       <ul class="nav nav-tabs">
+         @php 
+        $count=0;
+        @endphp
+        @foreach($services as $service)
         <li class="nav-item">
-          <a href="#service" class="nav-link active" data-toggle="tab">Our Services</a>
+          <a href="#{{$service->id}}" class="nav-link @if($count==0) { active } @endif" data-toggle="tab">{{$service->short_title}}</a>
         </li>
-        <li class="nav-item">
-          <a href="#expertise" class="nav-link" data-toggle="tab">Our Expertise</a>
-        </li>
-        <li class="nav-item">
-          <a href="#prouduct" class="nav-link" data-toggle="tab">Our Products</a>
-        </li>
+         @php
+        $count++;
+        @endphp
+        @endforeach
       </ul>
       <!-- Tab Content -->
+      
       <div class="tab-content">
-        <div id="service" class="container tab-pane active">
-          <h3>Our Services</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-        </div>
-        <div id="expertise" class="container tab-pane fade">
-          <h3>Our Expertise</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-        </div>
-        <div id="prouduct" class="container tab-pane fade">
-          <h3>Our Product</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-        </div>
+        @php 
+        $count=0;
+        @endphp
+        @foreach($services as $service)
+                <div id="{{$service->id}}" class="container tab-pane @if($count ==0) { active } @endif">
+                  <h3>{{$service->short_title}}</h3>
+                  <p>{{$service->long_title}}</p>
+                </div>
+
+        @php
+        $count++;
+        @endphp
+        @endforeach
       </div>
+      
     </div>
+    
   </section>
 
 

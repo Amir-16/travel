@@ -33,7 +33,7 @@
           <div class="card">
             <div class="card-header">
               <h3>SLider list
-                <a class="btn btn-success float-right" href="{{route('sliders.add')}}"> <i class="fa fa-plus-circle"></i> Add Logo</a>
+                <a class="btn btn-success float-right" href="{{route('sliders.add')}}"> <i class="fa fa-plus-circle"></i> Add Slider</a>
               </h3>
             </div><!-- /.card-header -->
             <div class="card-body">

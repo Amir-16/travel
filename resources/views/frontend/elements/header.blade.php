@@ -13,7 +13,7 @@
 	<section class="header">
 		<div class="container">
 			<nav class="navbar navbar-expand-md navbar-light">
-				<a href="" class="navbar-brand"><img src="{{asset('public/frontend/image/dell.png')}}" style="height: 50px;"></a>
+				<a href="" class="navbar-brand"><img src="{{asset('public/upload/logo_images/'.$logo->image)}}" style="height: 50px;"></a>
 				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
 				<div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
 					<div class="navbar-nav popular">
@@ -21,14 +21,13 @@
 						<div class="nav-item dropdown">
 							<a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">About Us</a>
 							<div class="dropdown-menu" style="background: #BADDFB;">
-								<a href="{{url('about')}}" class="dropdown-item">About Us</a>
-								<a href="" class="dropdown-item">Mission</a>
-								<a href="" class="dropdown-item">Vision</a>
+								<a href="{{route('about-us')}}" class="dropdown-item">About </a>
+								<a href="{{route('our.mission')}}" class="dropdown-item">Mission</a>
+								<a href="{{route('our.vision')}}" class="dropdown-item">Vision</a>
 							</div>
 						</div>
 						<a href="" class="nav-item nav-link">News and Event</a>
-						<a href="{{url('contact')}}" class="nav-item nav-link">Contact Us</a>
-						<a href="" class="nav-item nav-link">Login</a>
+						<a href="{{route('contact')}}" class="nav-item nav-link">Contact Us</a>
 					</div>
 					<div class="navbar-nav">
 						<form class="form-inline">
