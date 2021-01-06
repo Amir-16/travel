@@ -13,27 +13,37 @@
     <div class="row">
       <div class="col-md-7">
         <h3 style="padding-top: 15px;padding-bottom: 5px;border-bottom: 1px solid black;width: 39%;">Send us a Message</h3>
-        <form>
+
+        @if(Session::get('success'))
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button> 
+        <strong>{{Session::get('success')}}</strong> 
+        </div>
+
+        @endif
+
+        <form action="{{route('communicate.store')}}" id="myform" method="post">
+          @csrf
           <div class="form-row" style="background: #ddd;">
             <div class="form-group col-md-6">
               <label for="name">Name <span style="color: red;font-weight: bold;">*</span></label>
-              <input type="text" name="name" id="name" class="form-control" placeholder="Write Your Name">
+              <input type="text" name="name" id="name" class="form-control" placeholder="Write Your Name" required>
             </div>
             <div class="form-group col-md-6">
               <label for="email">Email <span style="color: red;font-weight: bold;">*</span></label>
-              <input type="email" name="email" id="email" class="form-control" placeholder="Write Your Email">
+              <input type="email" name="email" id="email" class="form-control" placeholder="Write Your Email" required>
             </div>
             <div class="form-group col-md-6">
               <label for="mobile_no">Mobile No <span style="color: red;font-weight: bold;">*</span></label>
-              <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Write Your Mobile No">
+              <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Write Your Mobile No" required>
             </div>
             <div class="form-group col-md-6">
               <label for="address">Address <span style="color: red;font-weight: bold;">*</span></label>
-              <input type="text" name="address" id="address" class="form-control" placeholder="Write Your Address">
+              <input type="text" name="address" id="address" class="form-control" placeholder="Write Your Address" required>
             </div>
             <div class="form-group col-md-12">
               <label for="message">Message <span style="color: red;font-weight: bold;">*</span></label>
-              <textarea name="message" class="form-control" id="message" placeholder="Write Your Message" rows="5"></textarea>
+              <textarea name="msg" class="form-control" id="msg"  placeholder="Write Your Message" rows="5"  required></textarea>
             </div>
             <div class="form-group col-md-6">
               <button type="submit" class="btn btn-primary">Send Message</button>
@@ -48,5 +58,64 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+$(function () {
+  $('#myform').validate({
+    rules: {
+      name: {
+        required: true,
+      },
+      email: {
+        required: true,
+        email: true,
+      },
+      mobile_no: {
+        required: true,
+        
+      },
+      address: {
+        required: true,
+        minlength: 6
+      },
+      msg: {
+        required: true,
+        equalTo:'#password'
+      }
+    },
+    messages: {
+      name: {
+        required: "Please enter name",
+      },
+      email: {
+        
+        required: "Please enter a email address",
+        email: "Please enter a vaild email address"
+      },
+      email: {
+        required: "Please put Mobile No",
+      },
+      Address: {
+        required: "Please provide a Address",
+      
+      },
+      msg: {
+        required: "Please provide a password",
+      },
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+</script>
 
 @endsection

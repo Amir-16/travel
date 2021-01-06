@@ -21,15 +21,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/','FrontEnd\FrontendController@index');
+Route::get('/','Frontend\FrontendController@index');
 
-Route::get('/contact','FrontEnd\FrontendController@contact')->name('contact');
+Route::get('/contact','Frontend\FrontendController@contact')->name('contact');
 
-Route::get('/about','FrontEnd\FrontendController@about')->name('about-us');
+Route::get('/about','Frontend\FrontendController@about')->name('about-us');
 
-Route::get('/mission','FrontEnd\FrontendController@mission')->name('our.mission');
+Route::get('/mission','Frontend\FrontendController@mission')->name('our.mission');
 
-Route::get('/vision','FrontEnd\FrontendController@vision')->name('our.vision');
+Route::get('/vision','Frontend\FrontendController@vision')->name('our.vision');
+
+Route::post('/communicate','Frontend\FrontendController@store')->name('communicate.store');
 
 
 //Backend Routes groups with middleware
@@ -43,10 +45,12 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('/store','Backend\UserController@store')->name('users.store');
     Route::post('/update/{id}','Backend\UserController@update')->name('users.update');
     Route::get('/delete/{id}','Backend\UserController@delete')->name('users.delete');
+    
   });
 
   //profiles Route
   Route::prefix('profile')->group(function(){
+
     Route::get('/view','Backend\ProfileController@index')->name('profiles.view');
     Route::get('/edit','Backend\ProfileController@edit')->name('profiles.edit');
     Route::post('/update','Backend\ProfileController@update')->name('profiles.update');
